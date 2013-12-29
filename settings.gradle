@@ -1,1 +1,1 @@
-include ':mod01'
+include ':mod01', ':mod02'
