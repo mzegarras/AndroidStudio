@@ -1,5 +1,6 @@
 package net.msonic.mod02;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -28,6 +29,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         
@@ -48,6 +50,11 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    public void btnIniciarServicio(View v){
+        Intent intent = new Intent(this, DownloadService.class);
+        startService(intent);
+    }
     /**
      * A placeholder fragment containing a simple view.
      */
