@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name="net.msonic.mod02.DownloadService" >
+        <service android:name="net.msonic.mod02.DownloadService" android:exported="true" >
         </service>
 
     </application>

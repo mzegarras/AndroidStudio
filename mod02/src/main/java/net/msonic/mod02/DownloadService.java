@@ -3,6 +3,7 @@ package net.msonic.mod02;
 
 import android.app.IntentService;
 import android.content.Intent;
+import android.os.RemoteException;
 import android.util.Log;
 
 /**
@@ -13,6 +14,16 @@ public class DownloadService extends IntentService {
     public DownloadService() {
         super("DownloadService");
     }
+
+
+    // implementation of the aidl interface
+    private final IRemoteService.Stub mBinder=new IRemoteService.Stub() {
+        @Override
+        public String sayHello(String message) throws RemoteException {
+            return "Hello "+ message;
+
+        }
+    };
 
     @Override
     protected void onHandleIntent(Intent intent) {
@@ -32,11 +43,11 @@ public class DownloadService extends IntentService {
         try {
             httpPoster.invoke();
             Log.d(DownloadService.class.getCanonicalName(),"OK");
-            Log.d(DownloadService.class.getCanonicalName(),httpPoster.getResponse());
+            Log.d(DownloadService.class.getCanonicalName(), httpPoster.getResponse());
             //return httpPoster.getResponse();
         } catch (Exception e) {
             // TODO Auto-generated catch block
-            Log.d(DownloadService.class.getCanonicalName(),"Error");
+            Log.d(DownloadService.class.getCanonicalName(), "Error");
             //return "ERROR";
         }
 
