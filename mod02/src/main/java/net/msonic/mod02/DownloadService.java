@@ -2,7 +2,9 @@ package net.msonic.mod02;
 
 
 import android.app.IntentService;
+import android.app.Service;
 import android.content.Intent;
+import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 
@@ -10,11 +12,24 @@ import android.util.Log;
  * Created by manuelzegarra on 28/12/13.
  */
 public class DownloadService extends IntentService {
+    public static String TAG = DownloadService.class.getCanonicalName();
 
-    public DownloadService() {
+
+    public DownloadService(){
         super("DownloadService");
     }
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Log.d(TAG, "onCreate()");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy()");
+    }
 
     // implementation of the aidl interface
     private final IRemoteService.Stub mBinder=new IRemoteService.Stub() {
@@ -26,17 +41,14 @@ public class DownloadService extends IntentService {
     };
 
     @Override
+    public IBinder onBind(Intent intent) {
+        return mBinder;
+    }
+
+
+    @Override
     protected void onHandleIntent(Intent intent) {
         Log.d(DownloadService.class.getCanonicalName(),"Inicio Servicio");
-        /*for (int i=1;i<=100;i++){
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            Log.d(DownloadService.class.getCanonicalName(),String.valueOf(i) + Thread.currentThread().getId());
-        }*/
-
 
         HttpPoster httpPoster = new HttpPoster();
         httpPoster.setUrl("http://192.168.0.14/test/ClienteService.svc/q/323");

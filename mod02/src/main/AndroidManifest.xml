@@ -2,29 +2,38 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="net.msonic.mod02" >
 
-
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
+        android:debuggable="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
-
         <activity
             android:name="net.msonic.mod02.MainActivity"
             android:label="@string/app_name" >
+
+        </activity>
+
+        <service
+            android:name="net.msonic.mod02.DownloadService"
+            android:exported="true"
+            android:process=":remote" >
+        </service>
+
+        <activity
+            android:name="net.msonic.mod02.LoginActivity"
+            android:label="@string/title_activity_login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name="net.msonic.framework.LoginService">
 
-        <service android:name="net.msonic.mod02.DownloadService" android:exported="true" >
         </service>
-
     </application>
 
 </manifest>
