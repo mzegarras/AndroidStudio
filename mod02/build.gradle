@@ -14,11 +14,11 @@ repositories {
 
 android {
     compileSdkVersion 18
-    buildToolsVersion "19.0.1"
+    buildToolsVersion '19.0.1'
 
     defaultConfig {
         minSdkVersion 7
-        targetSdkVersion 16
+        targetSdkVersion 18
         versionCode 1
         versionName "1.0"
     }
@@ -38,4 +38,11 @@ android {
 
 dependencies {
     compile 'com.android.support:appcompat-v7:+'
+    //compile 'com.android.support:appcompat-v7:18.0.+'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'org.roboguice:roboguice:2.0'
+    //compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
+    //compile project(':libraries:ActionBarSherlock:actionbarsherlock')
+    //compile 'com.google.inject:guice:3.0'
+    //compile fileTree(dir: 'libs', include: '*.jar')
 }

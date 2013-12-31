@@ -21,6 +21,7 @@ import net.msonic.framework.LoginProxy;
 import net.msonic.framework.LoginService;
 
 import roboguice.activity.RoboActivity;
+import roboguice.util.Ln;
 
 public class LoginActivity extends RoboActivity {
 
@@ -32,7 +33,7 @@ public class LoginActivity extends RoboActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        Ln.v("hello there")
         /*if(android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
