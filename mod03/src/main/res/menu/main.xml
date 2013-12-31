@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item
+        android:id="@+id/action_refresh"
+        android:title="A"
+        android:icon="@drawable/ic_launcher"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_search"
+        android:title="b"
+        android:icon="@drawable/ic_launcher"
+        app:showAsAction="ifRoom" />
+
+
+    <item android:id="@+id/mnuTipo" android:title="Tipo" android:icon="@drawable/ic_launcher" app:showAsAction="ifRoom|withText">
+        <menu>
+            <group android:checkableBehavior="all">
+                <item android:id="@+id/mnuTipoBluetooh" android:titleCondensed="Options" android:title="A"  />
+                <item android:id="@+id/mnuTipoNetwork" android:titleCondensed="Persist" android:title="b" />
+            </group>
+
+        </menu>
+    </item>
+
+
+
+</menu>
