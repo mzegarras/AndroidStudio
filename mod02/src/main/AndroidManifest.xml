@@ -23,7 +23,7 @@
         </service>
 
         <activity
-            android:name="net.msonic.mod02.LoginActivity"
+            android:name="net.msonic.mod02.MenuActivity2"
             android:label="@string/title_activity_login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
